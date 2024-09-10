@@ -1,0 +1,138 @@
+* {
+    background-color: rgb(4, 7, 22);
+    color: aqua;
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 15000;
+}
+.loader--hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+.loader::after{
+    content: "";
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border: 6px solid aqua;
+    border-radius: 4px;
+    box-shadow: 0 0 8px aqua, 0 0 8px aqua inset;
+    z-index: 100;
+    animation: loadingg 2s ease-in-out 3;
+}
+
+@keyframes loadingg {
+    0%{
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+    33%{
+        transform: rotateX(180deg) rotateY(0) rotateZ(0);
+    }
+    67%{
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
+    }
+    100%{
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+    }
+}
+
+.heading{
+    margin-top: 15vh;
+    text-align: center;
+    letter-spacing: 20px;
+    text-shadow:  0px 0px 70px aqua;
+}
+.container{
+    height: 100vh;
+}
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    flex-wrap: wrap;
+}
+.box{
+    z-index: 10;
+    height: 15vh;
+    width: 15vh;
+    margin: 15px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: rgb(25, 36, 87);
+    box-shadow:  0px 0px 20px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    line-height: 1; 
+    text-align: center;
+    color: aqua;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  0px 0px 20px aqua;
+}
+.box:hover{
+    /*background-color: rgba(147, 183, 190, 0.571);*/
+    transition: 0.25s;
+    box-shadow:  0px 0px 20px aqua;
+}
+.box:disabled{
+    cursor: not-allowed;
+}
+.row1, .row2, .row3{
+    display: flex;
+}
+#reset-btn{
+    margin-top: 15px;
+    width: 12vw;
+    height: 5vh;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: rgb(25, 36, 87);
+    color: aqua;
+    font-weight: 700;
+    font-size: 10px;
+    text-shadow:  0px 0px 20px aqua;
+}
+#reset-btn:hover{
+    background-color: rgb(147, 183, 190, 0.571);
+    transition: 0.25s;
+    box-shadow:  0px 0px 20px aqua;
+}
+.result{
+    font-size: 20px;
+    text-shadow:  0px 0px 20px aqua;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    color: aqua;
+    text-align: center;
+}
+.box:active, #reset-btn:active{
+    opacity: 60%;
+}
+.spotlight {
+    position: fixed;
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.6), transparent 70%);
+    mix-blend-mode: screen; /* Makes the spotlight effect blend with the background */
+    pointer-events: none; /* Ensures the spotlight does not interfere with other elements */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Make sure it's below other elements */
+    transition: background 0.3s ease-in-out; /* Smooth transition for the spotlight */
+}
